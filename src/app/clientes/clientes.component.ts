@@ -18,7 +18,10 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.clientes = this.clienteService.getClientes();
+    //el observador se suscribe al observable 
+    this.clienteService.getClientes().subscribe(
+      clientes => this.clientes = clientes
+    );
   }
 
 }
